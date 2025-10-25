@@ -48,8 +48,10 @@ Create a `.env` file in the root.
 BSKY_IDENTIFIER="yourusername.bsky.social"
 BSKY_PASSWORD="your password"
 
+NODE_EVN="production or development"
 DISCORD_CLIENT_ID="discord client id"
 DISCORD_TOKEN="discord bot token"
+DISCORD_ADMIN_ID="discord admin id"
 DISCORD_GUILD_ID="discord guild id"
 
 DATABASE_URL="file:./dev.db"
