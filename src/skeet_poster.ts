@@ -229,8 +229,6 @@ export class SkeetPoster {
                 channel: config.channel.channelId,
                 showReposts: config.showReposts,
                 includeReplies: config.includeReplies,
-                message: config.message ?? "",
-                role: config.role ?? "",
                 filterHashtag: config.filterHashtag ?? undefined,
             });
             this.configs.set(config.user.did, configs);
