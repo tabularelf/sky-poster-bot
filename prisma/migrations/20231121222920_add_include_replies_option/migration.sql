@@ -6,6 +6,8 @@ CREATE TABLE "new_TrackingConfig" (
     "channelId" INTEGER NOT NULL,
     "showReposts" BOOLEAN NOT NULL DEFAULT false,
     "filterHashtag" TEXT,
+    "message" TEXT,
+    "role" TEXT,
     "includeReplies" BOOLEAN NOT NULL DEFAULT false,
     "addedByDiscordUserId" TEXT,
     CONSTRAINT "TrackingConfig_userId_fkey" FOREIGN KEY ("userId") REFERENCES "TrackedUser" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
