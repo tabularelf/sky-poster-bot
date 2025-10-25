@@ -114,6 +114,7 @@ export class SkeetPoster {
         showReposts?: boolean;
         hashtag?: string;
 		message?: string;
+		role?: Role | undefined;
         addedByDiscordUserId?: string;
         includeReplies?: boolean;
     }) {
@@ -151,6 +152,7 @@ export class SkeetPoster {
                     userId: user.id,
                     showReposts: args.showReposts,
                     hashtag: args.hashtag,
+					role: args.role,
 					message: args.message,
                     addedByDiscordUserId: args.addedByDiscordUserId,
                     includeReplies: args.includeReplies,
@@ -375,7 +377,7 @@ export class SkeetPoster {
 
                         const channelId = ENV_VARS.DISCORD_CHANNEL_ID_DEBUG ?? config.channel;
                         const dsChannel = await this.getValidDiscordChannel(channelId);
-                        await dsChannel.send({ content: config.message, embeds: [embed] });
+                        await dsChannel.send({ content: `${config.role}` + config.message, embeds: [embed], allowedMentions: { roles: [config.role] }, });
                     }),
                 );
 
