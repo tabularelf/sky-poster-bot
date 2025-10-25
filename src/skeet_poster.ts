@@ -558,7 +558,7 @@ function createSkeetEmbed(data: {
             url: data.authorUrl,
         })
         .setDescription(data.text)
-        .setFooter({ text: "Skeet Poster by @maloo.ski" })
+        .setFooter({ text: "Skeet Poster by @maloo.ski, modified by tabularelf" })
         .setTimestamp(new Date(data.createdAt));
 
     if (data.imgUrl) {
