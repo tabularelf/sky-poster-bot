@@ -29,6 +29,8 @@ interface CachedTrackingConfig {
     showReposts: boolean;
     includeReplies: boolean;
     filterHashtag?: string;
+    message?: string;
+    role?: string;
 }
 
 export class SkeetPoster {
@@ -444,7 +446,7 @@ export class SkeetPoster {
         showReposts?: boolean;
         hashtag?: string;
         message?: string;
-        role?: Role | undefined;
+        role?: string;
         addedByDiscordUserId?: string;
         includeReplies?: boolean;
     }) {
