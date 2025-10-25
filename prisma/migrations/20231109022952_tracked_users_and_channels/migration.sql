@@ -16,6 +16,8 @@ CREATE TABLE "TrackingConfig" (
     "userId" INTEGER NOT NULL,
     "channelId" INTEGER NOT NULL,
     "showReposts" BOOLEAN NOT NULL DEFAULT false,
+    "role" TEXT NOT NULL,
+    "message" TEXT NOT NULL,
     CONSTRAINT "TrackingConfig_userId_fkey" FOREIGN KEY ("userId") REFERENCES "TrackedUser" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "TrackingConfig_channelId_fkey" FOREIGN KEY ("channelId") REFERENCES "DiscordChannel" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
