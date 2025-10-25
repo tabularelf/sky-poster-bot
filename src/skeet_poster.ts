@@ -218,6 +218,8 @@ export class SkeetPoster {
                 channel: true,
                 showReposts: true,
                 includeReplies: true,
+                message: true,
+                role: true,
                 filterHashtag: true,
             },
         });
