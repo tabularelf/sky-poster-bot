@@ -372,7 +372,7 @@ export class SkeetPoster {
 
                         const channelId = ENV_VARS.DISCORD_CHANNEL_ID_DEBUG ?? config.channel;
                         const dsChannel = await this.getValidDiscordChannel(channelId);
-                        await dsChannel.send({ embeds: [embed] });
+                        await dsChannel.send(event.message, { embeds: [embed] });
                     }),
                 );
 

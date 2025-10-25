@@ -40,6 +40,11 @@ export default function SkeetCommand(app: SkeetPoster): DiscordCommandDefinition
                             .setName("hashtag")
                             .setDescription("Include posts only with this hashtag"),
                     )
+					.addStringOption((option) =>
+                        option
+                            .setName("message")
+                            .setDescription("Includes message in Discord posts"),
+                    )
                     .addBooleanOption((option) =>
                         option.setName("replies").setDescription("Include replies?"),
                     ),
@@ -129,6 +134,7 @@ export default function SkeetCommand(app: SkeetPoster): DiscordCommandDefinition
 
                     const showReposts = interaction.options.getBoolean("show-reposts") ?? false;
                     const includeReplies = interaction.options.getBoolean("replies") ?? false;
+					const message = interaction.options.getString("message") ?? "";
                     const rawHashtag = interaction.options.getString("hashtag") ?? undefined;
 
                     const hashtag = rawHashtag !== undefined ? toHashtag(rawHashtag) : undefined;
@@ -144,6 +150,7 @@ export default function SkeetCommand(app: SkeetPoster): DiscordCommandDefinition
                         channelId: interaction.channelId,
                         showReposts,
                         hashtag,
+						message,
                         addedByDiscordUserId: interaction.user.id,
                         includeReplies,
                     });
