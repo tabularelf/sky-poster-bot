@@ -13,7 +13,7 @@ CREATE TABLE "new_TrackingConfig" (
     CONSTRAINT "TrackingConfig_userId_fkey" FOREIGN KEY ("userId") REFERENCES "TrackedUser" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "TrackingConfig_channelId_fkey" FOREIGN KEY ("channelId") REFERENCES "DiscordChannel" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
-INSERT INTO "new_TrackingConfig" ("addedByDiscordUserId", "channelId", "filterHashtag", "id", "showReposts", "userId") SELECT "addedByDiscordUserId", "channelId", "filterHashtag", "id", "showReposts", "userId" FROM "TrackingConfig";
+INSERT INTO "new_TrackingConfig" ("addedByDiscordUserId", "channelId", "filterHashtag", "message", "role", "id", "showReposts", "userId") SELECT "addedByDiscordUserId", "channelId", "filterHashtag", "message", "role", "id", "showReposts", "userId" FROM "TrackingConfig";
 DROP TABLE "TrackingConfig";
 ALTER TABLE "new_TrackingConfig" RENAME TO "TrackingConfig";
 CREATE UNIQUE INDEX "TrackingConfig_userId_channelId_key" ON "TrackingConfig"("userId", "channelId");
