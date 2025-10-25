@@ -45,6 +45,11 @@ export default function SkeetCommand(app: SkeetPoster): DiscordCommandDefinition
                             .setName("message")
                             .setDescription("Includes message in Discord posts"),
                     )
+					.addRoleOption((option) =>
+                        option
+                            .setName("role")
+                            .setDescription("The role to ping, if any"),
+                    )
                     .addBooleanOption((option) =>
                         option.setName("replies").setDescription("Include replies?"),
                     ),
