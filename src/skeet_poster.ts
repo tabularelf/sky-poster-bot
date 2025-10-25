@@ -125,6 +125,7 @@ export class SkeetPoster {
                 showReposts: args.showReposts,
                 hashtag: args.hashtag,
 				message: args.message,
+                role: args.role,
                 addedByDiscordUserId: args.addedByDiscordUserId,
                 includeReplies: args.includeReplies,
             },
@@ -442,6 +443,8 @@ export class SkeetPoster {
         userId: number;
         showReposts?: boolean;
         hashtag?: string;
+        message?: string;
+        role?: Role | undefined;
         addedByDiscordUserId?: string;
         includeReplies?: boolean;
     }) {
@@ -453,6 +456,8 @@ export class SkeetPoster {
                 filterHashtag: args?.hashtag ?? undefined,
                 showReposts: args?.showReposts ?? false,
                 addedByDiscordUserId: args.addedByDiscordUserId,
+                message: args.message,
+                role: args.role,
                 includeReplies: args.includeReplies,
             },
             update: {
