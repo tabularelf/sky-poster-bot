@@ -471,6 +471,8 @@ export class SkeetPoster {
             update: {
                 filterHashtag: args?.hashtag ?? null,
                 showReposts: args?.showReposts ?? false,
+                role: args?.role ?? "",
+                message: args?.message ?? "",
                 ...removeNilEntries({
                     addedByDiscordUserId: args.addedByDiscordUserId,
                     includeReplies: args.includeReplies,
