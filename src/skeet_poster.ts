@@ -394,11 +394,11 @@ export class SkeetPoster {
                             result.allowedMentions = { roles: [config.role] }
                         }
 
-                        if (config.message != "") {
-                            result.content += config.message;
-                        }
-
                         await dsChannel.send(result);
+
+                        if (config.message != "") {
+                            await dsChannel.send({content: config.message});
+                        }
                     }),
                 );
 
