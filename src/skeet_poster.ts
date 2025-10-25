@@ -464,8 +464,8 @@ export class SkeetPoster {
                 filterHashtag: args?.hashtag ?? undefined,
                 showReposts: args?.showReposts ?? false,
                 addedByDiscordUserId: args.addedByDiscordUserId,
-                message: args.message,
-                role: args.role,
+                message: args?.message ?? "",
+                role: args?.role ?? "",
                 includeReplies: args.includeReplies,
             },
             update: {
