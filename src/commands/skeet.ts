@@ -140,7 +140,7 @@ export default function SkeetCommand(app: SkeetPoster): DiscordCommandDefinition
                     const showReposts = interaction.options.getBoolean("show-reposts") ?? false;
                     const includeReplies = interaction.options.getBoolean("replies") ?? false;
 					const message = interaction.options.getString("message") ?? "";
-					const role = interaction.options.getRole("role") ?? undefined;
+					const role = interaction.options.getRole("role") ?? "";
                     const rawHashtag = interaction.options.getString("hashtag") ?? undefined;
 
                     const hashtag = rawHashtag !== undefined ? toHashtag(rawHashtag) : undefined;
@@ -155,9 +155,9 @@ export default function SkeetCommand(app: SkeetPoster): DiscordCommandDefinition
                         did: did as Did,
                         channelId: interaction.channelId,
                         showReposts,
-						role,
                         hashtag,
 						message,
+                        role,
                         addedByDiscordUserId: interaction.user.id,
                         includeReplies,
                     });
