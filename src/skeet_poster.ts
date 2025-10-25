@@ -384,8 +384,21 @@ export class SkeetPoster {
 
                         const channelId = ENV_VARS.DISCORD_CHANNEL_ID_DEBUG ?? config.channel;
                         const dsChannel = await this.getValidDiscordChannel(channelId);
-                        await dsChannel.send({content: `<@&${config.role}> ` + config.message, embeds: [embed], allowedMentions: { roles: [config.role] }});
-						logger.info({ message: config.message, role: config.role }, "Message and role info");
+                        let result = {
+                            embeds: [embed],
+                            content: ""
+                        };
+
+                        if (config.role != "") {
+                            result.content += `<@&${config.role}> `;
+                            result.allowedMentions = { roles: [config.role] }
+                        }
+
+                        if (config.message != "") {
+                            result.content += config.message;
+                        }
+
+                        await dsChannel.send(result);
                     }),
                 );
 
