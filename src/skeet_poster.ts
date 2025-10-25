@@ -113,6 +113,7 @@ export class SkeetPoster {
         channelId: string;
         showReposts?: boolean;
         hashtag?: string;
+		message?: string;
         addedByDiscordUserId?: string;
         includeReplies?: boolean;
     }) {
@@ -122,6 +123,7 @@ export class SkeetPoster {
                 channelId: args.channelId,
                 showReposts: args.showReposts,
                 hashtag: args.hashtag,
+				message: args.message,
                 addedByDiscordUserId: args.addedByDiscordUserId,
                 includeReplies: args.includeReplies,
             },
@@ -149,6 +151,7 @@ export class SkeetPoster {
                     userId: user.id,
                     showReposts: args.showReposts,
                     hashtag: args.hashtag,
+					message: args.message,
                     addedByDiscordUserId: args.addedByDiscordUserId,
                     includeReplies: args.includeReplies,
                 });
@@ -372,7 +375,7 @@ export class SkeetPoster {
 
                         const channelId = ENV_VARS.DISCORD_CHANNEL_ID_DEBUG ?? config.channel;
                         const dsChannel = await this.getValidDiscordChannel(channelId);
-                        await dsChannel.send(event.message, { embeds: [embed] });
+                        await dsChannel.send({ content: config.message, embeds: [embed] });
                     }),
                 );
 
